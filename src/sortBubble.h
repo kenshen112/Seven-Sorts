@@ -20,13 +20,13 @@ void sortBubble(T array[], int num)
 {
    bool swapped = false;
 
-   for(int iPivot = num - 1; iPivot > 0; i--)
+   for(int iPivot = num - 1; iPivot > 0; iPivot--)
    {
       for(int iCheck = 0; iCheck < iPivot - 1; ++iCheck)
       {
          if(array[iCheck] > array[iCheck+1])
          {
-            std::swap(iCheck, iCheck+1);
+            std::swap(array[iCheck], array[iCheck+1]);
             swapped = true;
          }
       }
