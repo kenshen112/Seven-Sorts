@@ -22,7 +22,7 @@ void sortBubble(T array[], int num)
 
    for(int iPivot = num; iPivot > 0; iPivot--)
    {
-      for(int iCheck = 0; iCheck < iPivot; ++iCheck)
+      for(int iCheck = 0; iCheck < iPivot - 1; ++iCheck)
       {
          if(array[iCheck] > array[iCheck+1])
          {
