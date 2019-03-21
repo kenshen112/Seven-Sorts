@@ -522,7 +522,7 @@ template <class T>
       
       while(!home)
       {
-         if(item <= pPlace->data) //otherwise do we need to go left?
+         if(item < pPlace->data) //otherwise do we need to go left?
          {
             if(pPlace->pLeft == nullptr)
             {
@@ -533,7 +533,7 @@ template <class T>
             else
                pPlace = pPlace->pLeft;
          }
-         else if(item >= pPlace->data) //or right?
+         else if(item > pPlace->data) //or right?
          {
             if(pPlace->pRight == nullptr)
             {
