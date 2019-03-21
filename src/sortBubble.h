@@ -7,7 +7,7 @@
  * Summary:
  *    This program will implement the Bubble Sort
  ************************************************************************/
-
+#include <algorithm> //for the std::swap function
 #ifndef SORT_BUBBLE_H
 #define SORT_BUBBLE_H
 
@@ -24,7 +24,15 @@ void sortBubble(T array[], int num)
    {
       for(int iCheck = 0; iCheck < iPivot - 1; ++iCheck)
       {
-
+         if(array[iCheck] > array[iCheck+1])
+         {
+            std::swap(iCheck, iCheck+1);
+            swapped = true;
+         }
+      }
+      if(!swapped)
+      {
+         return;
       }
    }
 }
