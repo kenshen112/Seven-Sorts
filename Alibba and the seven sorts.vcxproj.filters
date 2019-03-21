@@ -47,5 +47,11 @@
     <ClInclude Include="src\bst.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\bnode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\queue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
