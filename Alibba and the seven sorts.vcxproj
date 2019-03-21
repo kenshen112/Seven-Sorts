@@ -101,6 +101,7 @@
     <ClCompile Include="src\assignment11.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\bst.h" />
     <ClInclude Include="src\sortBinary.h" />
     <ClInclude Include="src\sortBubble.h" />
     <ClInclude Include="src\sortHeap.h" />

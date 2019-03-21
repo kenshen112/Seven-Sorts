@@ -44,5 +44,8 @@
     <ClInclude Include="src\sortValue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\bst.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
