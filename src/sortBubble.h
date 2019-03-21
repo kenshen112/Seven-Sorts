@@ -18,6 +18,15 @@
 template <class T>
 void sortBubble(T array[], int num)
 {
+   bool swapped = false;
+
+   for(int iPivot = num - 1; iPivot > 0; i--)
+   {
+      for(int iCheck = 0; iCheck < iPivot - 1; ++iCheck)
+      {
+
+      }
+   }
 }
 
 
