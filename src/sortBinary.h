@@ -28,9 +28,9 @@ void sortBinary(T array[], int num)
 		bst.insert(array[i]);
 	}	
 	i = 0;    
-	for (BST <T> ::iterator it = bst.begin(); it != bst.end(); ++it)
+	for (typename custom::BST <T> ::iterator it = bst.begin(); it != bst.end(); ++it)
 	{
-		array[i++] = *it
+		array[i++] = *it;
 	}
 }
 
