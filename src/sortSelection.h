@@ -26,7 +26,7 @@ void sortSelection(T sArray[], int num)
 	{
 		iLargest = 0;
 
-		for (int iCheck = 1; iCheck < iPivot - 1; iCheck++)
+		for (int iCheck = 1; iCheck < iPivot; iCheck++)
 		{		
 			if (sArray[iLargest] < sArray[iCheck])
 				iLargest = iCheck;
