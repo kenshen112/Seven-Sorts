@@ -24,23 +24,33 @@ private:
 	T *array;
 	int num;
 public:
-	Heap()
+	Heap(T *arrayInput, int numInput) //this is heapify
 	{
-		array = NULL;
-		num = 0;
-	}
+		try
+		{
+			array = new T[num];
+		}
 
-	Heap(T arrayInput, int numInput)
-	{
+		catch(std::bad_alloc)
+		{
+			std::cerr << "Bad Malloc" << '\n';
+		}
+
+
 		array = arrayInput;
 		num = numInput;
 
-		for (int index = (num / 2); index < num; index++)
+		for (int index = (num / 2); index > 0; index--)
 		{
+			std::cerr << "Heapify: " << index << std::endl;
 			percolateDown(index);
 		}
 	}
 
+
+	T getMax();
+	void deleteMax();
+	void sort();
 	void percolateDown(int index);
 };
 
@@ -54,12 +64,15 @@ void Heap<T>::percolateDown(int index)
 	if (indexRight < num && array[indexRight] > array[indexLeft] 
 		&& array[indexRight] > array[index])
 	{
+		std::cerr << "IndexRight" << std::endl;
 		std::swap(index, indexRight);
 		percolateDown(indexRight);
 	}
 
 	else if (indexLeft < num && array[indexLeft] > array[index])
 	{
+		std::cerr << "Index Left: " << indexLeft << std::endl;
+		std::cerr << "Index: " << index << std::endl;
 		std::swap(index, indexLeft);
 		percolateDown(indexLeft);
 	}
@@ -68,13 +81,7 @@ void Heap<T>::percolateDown(int index)
 template <class T>
 void sortHeap(T array[], int num)
 {
-	Heap<T> heap;
-
-	while (num > 1)
-	{
-		num--;
-		heap.percolateDown(1);
-	}
+	Heap<T> heap(array, num); // heapffy
 }
 
 
