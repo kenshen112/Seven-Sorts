@@ -125,6 +125,8 @@ namespace custom
        //Constructors/Destructor
        iterator()
        {
+		   std::cerr << "Constrctor" << std::endl;
+
           p = nullptr;
 	   }
 
@@ -323,7 +325,7 @@ namespace custom
    typename BST <T>::iterator BST<T>::iterator::operator++()
    {
 
-	  //std::cerr << "MMM Prefix Donught" << std::endl;
+	  std::cerr << "MMM Prefix Donught" << std::endl;
 
       // do nothing if we have nothing
       if (p == nullptr) // rember always use nullptr instead of NULL
@@ -370,11 +372,10 @@ namespace custom
  *so I copied the decrement operator above and
  *  just switched pLeft to pRight and vice versa
  *************************************************/
-   template <class T>
-      typename BST <T>::iterator BST<T>::iterator::operator++(int)
-   {
-    
-		  //std::cerr << "MMM Postfix donught" << std::endl;
+   template <class T>   
+   typename BST <T>::iterator BST<T>::iterator::operator++(int)
+	  {	  
+	   std::cerr << "MMM Postfix donught" << std::endl;
 
       // do nothing if we have nothing
       if (p == nullptr) // rember always use nullptr instead of NULL
@@ -878,11 +879,12 @@ template <class T>
    template<class T>   
    typename BST<T>::iterator BST<T>::begin()
    {
-
+	   std::cerr << "begin!" << std::endl;
 
       if(root == nullptr)
       {		 
          return iterator(nullptr);
+		 std::cerr << "iterator nullptr" << std::endl;
       }
 
 
@@ -892,7 +894,7 @@ template <class T>
       while(pNew->pLeft)
       {
          pNew = pNew->pLeft;
-         
+		 std::cout << "While" << std::endl;
       }
       
 
