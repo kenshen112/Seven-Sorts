@@ -22,9 +22,8 @@ void sortSelection(T sArray[], int num)
 {
 	int iPivot = 0;
 	int iLargest = 0;
-	for (iPivot = num - 1; iPivot --;)
+	for (iPivot = num - 1; iPivot > 0; iPivot--)
 	{
-
 		iLargest = 0;
 
 		for (int iCheck = 1; iCheck < iPivot - 1; iCheck++)
