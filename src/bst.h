@@ -492,13 +492,13 @@ template <class T>
    template<class T>
       void BST<T>::insert(T item)
    {
-//      cout << "we are in insert\n";
+      //cout << "we are in insert\n";
       BNode <T> * pNew;
       try
       {
          //make a new node
-         pNew = new BNode <T> (item);
-         //              cout << "We just made a new node\n";
+         pNew = new BNode <T> (item);              
+		 //cout << "We just made a new node\n";
       }
       catch (std::bad_alloc)
       {
@@ -508,7 +508,7 @@ template <class T>
       //if the tree is currently empty
       if (root == nullptr) // case 1 tree is black
       {
-         // cout << "the tree is empty\n";
+          //cout << "the tree is empty\n";
          root = pNew; // This node is black yo!
          root->black = true;
          root->parent = true;
@@ -550,19 +550,21 @@ template <class T>
       
       if(left)
       {
-         //    cout << "it needs to go in the left\n";
+         //std::cout << "it needs to go in the left\n";
          pPlace->pLeft = pNew;
          pNew->pParent = pPlace;
       }
       else
       {
-         // cout << "it needs to go on the right\n";
+         //std::cout << "it needs to go on the right\n";
          pPlace->pRight = pNew;
          pNew->pParent = pPlace;
       }
       numElements++;
       
-      
+	  std::cerr << "NumElements: " << numElements << std::endl;
+
+
 /*      if (item > root->data)
       {
          BNode <T> * pNew = new BNode<T>(item);
@@ -879,12 +881,12 @@ template <class T>
    template<class T>   
    typename BST<T>::iterator BST<T>::begin()
    {
-	   std::cerr << "begin!" << std::endl;
+	   std::cout << "begin!" << std::endl;
 
       if(root == nullptr)
       {		 
          return iterator(nullptr);
-		 std::cerr << "iterator nullptr" << std::endl;
+		 std::cout << "iterator nullptr" << std::endl;
       }
 
 
@@ -915,6 +917,7 @@ v************************************************/
    template <class T>
    typename BST<T>::iterator BST<T>::find(T itemToFind)
    {
+	   std::cerr << "Find" << std::endl;
 
 	   if (root == nullptr)
 	   {

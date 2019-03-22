@@ -29,10 +29,9 @@ void sortBinary(T array[], int num)
 	}	
 	i = 0;    
 	for (typename custom::BST <T> ::iterator it = bst.begin(); it != bst.end(); ++it)
-	{		std::cout << "Iterator: " << *it << std::endl;
-
+	{		
+		std::cout << "Iterat: " << *it << std::endl;
 		array[i++] = *it;
-
 	}
 }
 

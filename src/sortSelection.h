@@ -3,7 +3,7 @@
  *    Week 11, Sort Select
  *    Brother Helfrich, CS 235
  * Author:
- *    <your name>
+ *   Timothy O'Barr
  * Summary:
  *    This program will implement the Selection Sort
  ************************************************************************/
@@ -22,12 +22,12 @@ void sortSelection(T sArray[], int num)
 {
 	int iPivot = 0;
 	int iLargest = 0;
-	for (iPivot = num - 1; iPivot > 0; iPivot--)
+	for (iPivot = num - 1; iPivot > 1; iPivot--)
 	{
 		iLargest = 0;
 
 		for (int iCheck = 1; iCheck < iPivot - 1; iCheck++)
-		{		
+		{
 			if (sArray[iLargest] < sArray[iCheck])
 				iLargest = iCheck;
 
