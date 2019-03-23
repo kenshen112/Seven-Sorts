@@ -325,7 +325,7 @@ namespace custom
    typename BST <T>::iterator BST<T>::iterator::operator++()
    {
 
-	  std::cerr << "MMM Prefix Donught" << std::endl;
+//	  std::cerr << "MMM Prefix Donught" << std::endl;
 
       // do nothing if we have nothing
       if (p == nullptr) // rember always use nullptr instead of NULL
@@ -375,7 +375,7 @@ namespace custom
    template <class T>   
    typename BST <T>::iterator BST<T>::iterator::operator++(int)
 	  {	  
-	   std::cerr << "MMM Postfix donught" << std::endl;
+//	   std::cerr << "MMM Postfix donught" << std::endl;
 
       // do nothing if we have nothing
       if (p == nullptr) // rember always use nullptr instead of NULL
@@ -492,7 +492,8 @@ template <class T>
    template<class T>
       void BST<T>::insert(T item) throw (const char *)
    {
-      cout << "we are in insert\n";
+//      cout << "we are in insert\n";
+//      std::cerr << item << std::endl;
       BNode <T> * pNew;
       try
       {
@@ -520,15 +521,15 @@ template <class T>
       BNode <T> * pPlace = root;
       bool home = false; //to keep track of if we have found what we are looking for
       bool left; //to tell us if we are adding left or right
-      std::cerr << "about to go into the while loop to figure out where we need to put the element\n";
+      //    std::cerr << "about to go into the while loop to figure out where we need to put the element\n";
       while(!home)
       {
          if(item < pPlace->data) //otherwise do we need to go left?
          {
-            std::cerr << "in the while loop, we went left\n";
+            //    std::cerr << "in the while loop, we went left\n";
             if(pPlace->pLeft == nullptr)
             {
-               std::cerr << "there is an empty left child. that is home\n";
+               //  std::cerr << "there is an empty left child. that is home\n";
                home = true;
                left = true;
                //             		   pPlace->pLeft = pNew;
@@ -536,24 +537,30 @@ template <class T>
             else
             {
                pPlace = pPlace->pLeft;
-               std::cerr << "we did not find a home yet. move the pointer (pPlace) to the left\n";
+               //std::cerr << "we did not find a home yet. move the pointer (pPlace) to the left\n";
+               continue;
             }
          }
          else if(item > pPlace->data) //or right?
          {
-            std::cerr << "in the while loop we went right\n";
+            //std::cerr << "in the while loop we went right\n";
             if(pPlace->pRight == nullptr)
             {
-               std::cerr << "we found a home in the right child\n";
+               // std::cerr << "we found a home in the right child\n";
                home = true;
                left = false;
 //               	   pPlace->pRight = pNew;
             }
             else
             {
-               std::cerr << "we have not found a home yet. go right\n";
+               //std::cerr << "we have not found a home yet. go right\n";
                pPlace = pPlace->pRight;
             }
+
+         }
+         else
+         {
+            home = true; //there is already that value there.
          }
       }
       //attach the pointers to link the new item into the tree.
@@ -563,18 +570,18 @@ template <class T>
          //std::cout << "it needs to go in the left\n";
          pPlace->pLeft = pNew;
          pNew->pParent = pPlace;
-         std::cerr << "the pointers have been placed (if)\n";
+         //std::cerr << "the pointers have been placed (if)\n";
       }
       else
       {
          //std::cout << "it needs to go on the right\n";
          pPlace->pRight = pNew;
          pNew->pParent = pPlace;
-         std::cerr << "the pointers have been placed (else)\n";
+         //std::cerr << "the pointers have been placed (else)\n";
       }
       numElements++;
       
-	  std::cerr << "NumElements: " << numElements << std::endl;
+      //std::cerr << "NumElements: " << numElements << std::endl;
 
 
 /*      if (item > root->data)
@@ -589,7 +596,7 @@ template <class T>
          numElements++;
       }*/
 
-       cout << "we made it through insert!\n";
+      //cout << "we made it through insert!\n";
    }
 
 /*********************************************
@@ -893,7 +900,7 @@ template <class T>
    template<class T>   
    typename BST<T>::iterator BST<T>::begin()
    {
-	   std::cout << "begin!" << std::endl;
+//	   std::cout << "begin!" << std::endl;
 
       if(root == nullptr)
       {		 
@@ -908,7 +915,7 @@ template <class T>
       while(pNew->pLeft)
       {
          pNew = pNew->pLeft;
-		 std::cout << "While" << std::endl;
+//		 std::cout << "While" << std::endl;
       }
       
 
