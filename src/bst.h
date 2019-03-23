@@ -105,7 +105,7 @@ namespace custom
       int size()   { return numElements; }
       bool empty() { return numElements == 0; }
       void clear();
-      void insert(T item); // The Big Mac on the plate though this won't be too difficult equation wise if (item > left == true)  isRight = true;
+      void insert(T item) throw (const char *); // The Big Mac on the plate though this won't be too difficult equation wise if (item > left == true)  isRight = true;
       void erase(iterator it);
       void deleteNode(BNode <T> *nodeToDelete, bool isRight);
       void deleteBinaryTree(BNode <T> *deletor);
@@ -490,7 +490,7 @@ template <class T>
     * INSERT FOR BST
     ************************************************/
    template<class T>
-      void BST<T>::insert(T item)
+      void BST<T>::insert(T item) throw (const char *)
    {
       cout << "we are in insert\n";
       BNode <T> * pNew;
@@ -520,30 +520,40 @@ template <class T>
       BNode <T> * pPlace = root;
       bool home = false; //to keep track of if we have found what we are looking for
       bool left; //to tell us if we are adding left or right
-      
+      std::cerr << "about to go into the while loop to figure out where we need to put the element\n";
       while(!home)
       {
          if(item < pPlace->data) //otherwise do we need to go left?
          {
+            std::cerr << "in the while loop, we went left\n";
             if(pPlace->pLeft == nullptr)
             {
+               std::cerr << "there is an empty left child. that is home\n";
                home = true;
                left = true;
                //             		   pPlace->pLeft = pNew;
             }
             else
+            {
                pPlace = pPlace->pLeft;
+               std::cerr << "we did not find a home yet. move the pointer (pPlace) to the left\n";
+            }
          }
          else if(item > pPlace->data) //or right?
          {
+            std::cerr << "in the while loop we went right\n";
             if(pPlace->pRight == nullptr)
             {
+               std::cerr << "we found a home in the right child\n";
                home = true;
                left = false;
 //               	   pPlace->pRight = pNew;
             }
             else
+            {
+               std::cerr << "we have not found a home yet. go right\n";
                pPlace = pPlace->pRight;
+            }
          }
       }
       //attach the pointers to link the new item into the tree.
@@ -553,12 +563,14 @@ template <class T>
          //std::cout << "it needs to go in the left\n";
          pPlace->pLeft = pNew;
          pNew->pParent = pPlace;
+         std::cerr << "the pointers have been placed (if)\n";
       }
       else
       {
          //std::cout << "it needs to go on the right\n";
          pPlace->pRight = pNew;
          pNew->pParent = pPlace;
+         std::cerr << "the pointers have been placed (else)\n";
       }
       numElements++;
       
