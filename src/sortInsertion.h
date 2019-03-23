@@ -22,5 +22,8 @@ void sortInsertion(T array[], int num)
 {
 }
 
-
+template <class T>
+int binarySearch(T array[], int search, int iBegin, int iEnd)
+{
+}
 #endif // SORT_INSERTION_H
