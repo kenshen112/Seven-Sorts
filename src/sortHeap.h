@@ -42,11 +42,9 @@ public:
 
 		for (int index = (num / 2); index > 0; index--)
 		{
-			std::cerr << "index: " << index << std::endl;
 			percolateDown(index);
 		}
 	}
-
 
 	T getMax();
 	void deleteMax();
@@ -56,11 +54,22 @@ public:
 
 
 template<class T>
+T Heap<T>::getMax()
+{
+	return array[0];
+}
+
+template<class T>
+void Heap<T>::deleteMax()
+{
+	array[0] = NULL;
+}
+
+template<class T>
 void Heap<T>::sort()
 {
-	while (array[num] > array[1])
+	while (num > 1)
 	{
-		std::cerr << "Sorting" << std::endl;
 		std::swap(array[1], array[num]);
 		num--;
 		percolateDown(1);
@@ -74,14 +83,14 @@ void Heap<T>::percolateDown(int index)
 	int indexLeft = index * 2;
 	int indexRight = indexLeft + 1;
 
-	if (indexRight < num && array[indexRight] > array[indexLeft] 
+	if (array[indexRight] < array[num] && array[indexRight] > array[indexLeft] 
 		&& array[indexRight] > array[index])
 	{
 		std::swap(array[index], array[indexRight]);
 		percolateDown(indexRight);
 	}
 
-	else if (indexLeft < num && array[indexLeft] > array[index])
+	else if (array[indexLeft] < array[num] && array[indexLeft] > array[index])
 	{
 		std::swap(array[index], array[indexLeft]);
 		percolateDown(indexLeft);
@@ -92,7 +101,9 @@ template <class T>
 void sortHeap(T array[], int num)
 {
 	Heap<T> heap(array, num); // heapiffy
+	std::cerr << "Before Sort" << std::endl;
 	heap.sort();
+	std::cerr << "After Sort" << std::endl;
 }
 
 
