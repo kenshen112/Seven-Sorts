@@ -23,6 +23,6 @@ a.out: assignment11.o
 ##############################################################
 assignment11.o: assignment11.cpp sortValue.h \
 		sortBinary.h sortInsertion.h sortHeap.h sortBubble.h \
-		sortSelection.h sortMerge.h sortQuick.h
+		sortSelection.h sortMerge.h sortQuick.h bst.h queue.h
 	g++ -c assignment11.cpp -g -std=c++11
 

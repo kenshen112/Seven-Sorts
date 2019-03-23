@@ -28,7 +28,7 @@ public:
 	{
 		try
 		{
-			array = new T[num];
+			array = new T[numInput];
 		}
 
 		catch(std::bad_alloc)
@@ -42,7 +42,7 @@ public:
 
 		for (int index = (num / 2); index > 0; index--)
 		{
-			std::cerr << "Heapify: " << index << std::endl;
+			std::cerr << "index: " << index << std::endl;
 			percolateDown(index);
 		}
 	}
@@ -56,6 +56,19 @@ public:
 
 
 template<class T>
+void Heap<T>::sort()
+{
+	while (array[num] > array[1])
+	{
+		std::cerr << "Sorting" << std::endl;
+		std::swap(array[1], array[num]);
+		num--;
+		percolateDown(1);
+	}
+
+}
+
+template<class T>
 void Heap<T>::percolateDown(int index)
 {
 	int indexLeft = index * 2;
@@ -64,16 +77,13 @@ void Heap<T>::percolateDown(int index)
 	if (indexRight < num && array[indexRight] > array[indexLeft] 
 		&& array[indexRight] > array[index])
 	{
-		std::cerr << "IndexRight" << std::endl;
-		std::swap(index, indexRight);
+		std::swap(array[index], array[indexRight]);
 		percolateDown(indexRight);
 	}
 
 	else if (indexLeft < num && array[indexLeft] > array[index])
 	{
-		std::cerr << "Index Left: " << indexLeft << std::endl;
-		std::cerr << "Index: " << index << std::endl;
-		std::swap(index, indexLeft);
+		std::swap(array[index], array[indexLeft]);
 		percolateDown(indexLeft);
 	}
 }
@@ -81,7 +91,8 @@ void Heap<T>::percolateDown(int index)
 template <class T>
 void sortHeap(T array[], int num)
 {
-	Heap<T> heap(array, num); // heapffy
+	Heap<T> heap(array, num); // heapiffy
+	heap.sort();
 }
 
 

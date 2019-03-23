@@ -492,7 +492,7 @@ template <class T>
    template<class T>
       void BST<T>::insert(T item)
    {
-      //cout << "we are in insert\n";
+      cout << "we are in insert\n";
       BNode <T> * pNew;
       try
       {
@@ -577,7 +577,7 @@ template <class T>
          numElements++;
       }*/
 
-      // cout << "we made it through insert!\n";
+       cout << "we made it through insert!\n";
    }
 
 /*********************************************

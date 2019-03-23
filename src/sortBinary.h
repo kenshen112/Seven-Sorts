@@ -26,11 +26,13 @@ void sortBinary(T array[], int num)
 	for (i = 0; i < num; i++)
 	{
 		bst.insert(array[i]);
+		std::cerr << "I: " << i << std::endl;
+		std::cerr << "Somthing after I" << std::endl;
 	}	
 	i = 0;    
 	for (typename custom::BST <T> ::iterator it = bst.begin(); it != bst.end(); ++it)
 	{		
-		std::cout << "Iterat: " << *it << std::endl;
+		std::cout << "Iterator: " << *it << std::endl;
 		array[i++] = *it;
 	}
 }
