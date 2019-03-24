@@ -26,29 +26,13 @@ private:
 public:
 	Heap(T *arrayInput, int numInput) //this is heapify
 	{
-		try
-		{
-			array = new T[numInput];
-		}
-
-		catch(std::bad_alloc)
-		{
-			std::cerr << "Bad Malloc" << '\n';
-		}
-
-
-		array = arrayInput;
-		num = numInput;
-
-		for (int index = (num / 2 - 1); index > 0; index--)
-		{
-			percolateDown(index);
-		}
+		heapify(arrayInput, numInput);
 	}
 
 	T getMax();
 	void deleteMax();
 	void sort();
+	void heapify(T *arrayInput, int numInput);
 	void percolateDown(int index);
 };
 
@@ -68,33 +52,40 @@ void Heap<T>::deleteMax()
 template<class T>
 void Heap<T>::sort()
 {
-	while (num > 0)
+	for(int i = num-1; i>=0; i--)
 	{
-		std::swap(array[num], array[0]);
-		num = num - 1;
-		percolateDown(0);
-		
-	}
+		std::swap(array[0], array[num]);
+		heapify(array, i);
 
+	}
+}
+
+template<class T>
+void Heap<T>::heapify(T * arrayInput, int numInput)
+{
+	array = arrayInput;
+	num = numInput;
+
+	for (int index = num / 2 - 1; index >= 0; index--)
+	{
+		percolateDown(index);
+	}
 }
 
 template<class T>
 void Heap<T>::percolateDown(int index)
 {
-	int indexLeft = index * 2;
+	int indexLeft = index * 2 + 1;
 	int indexRight = indexLeft + 1;
 
-	if (indexRight < num && array[indexRight] > array[indexLeft] 
-		&& array[indexRight] > array[0])
+	if (indexRight < num && array[indexRight] > array[indexLeft] && array[indexRight] > array[index])
 	{
-		std::swap(array[index], array[indexRight]);
-		percolateDown(indexRight);
+		index = indexRight;
 	}
 
-	else if (indexLeft < num && array[indexLeft] > array[0])
+	else if (indexLeft < num && array[indexLeft] > array[index])
 	{
-		std::swap(array[index], array[indexLeft]);
-		percolateDown(indexLeft);
+		index = indexLeft;
 	}
 
 	if (array[index] == array[0])
@@ -107,15 +98,14 @@ void Heap<T>::percolateDown(int index)
 		std::swap(array[0], array[index]);
 	}
 
+	percolateDown(0);
 }
 
 template <class T>
 void sortHeap(T array[], int num)
 {
 	Heap<T> heap(array, num); // heapifies
-	std::cerr << "Before Sort" << std::endl;
 	heap.sort();
-	std::cerr << "After Sort" << std::endl;
 }
 
 
