@@ -20,21 +20,21 @@
 template <class T>
 void sortSelection(T sArray[], int num)
 {
-	int iPivot = 0;
-	int iLargest = 0;
-	for (iPivot = num - 1; iPivot > 1; iPivot--)
-	{
-		iLargest = 0;
-
-		for (int iCheck = 1; iCheck < iPivot; iCheck++)
-		{
-			if (sArray[iLargest] < sArray[iCheck])
-				iLargest = iCheck;
-
-			if (sArray[iLargest] > sArray[iPivot])
-				std::swap(sArray[iLargest], sArray[iPivot]);
-		}	
-	}
+   int iPivot = 0;
+   int iLargest = 0;
+   for (iPivot = num - 1; iPivot > 1; iPivot--)
+   {
+      iLargest = 0;
+      
+      for (int iCheck = 1; iCheck < iPivot; iCheck++)
+      {
+         if (sArray[iLargest] < sArray[iCheck])
+            iLargest = iCheck;
+         
+         if (sArray[iLargest] > sArray[iPivot])
+            std::swap(sArray[iLargest], sArray[iPivot]);
+      }	
+   }
 }
 
 

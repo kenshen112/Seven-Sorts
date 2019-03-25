@@ -1,13 +1,19 @@
 ###############################################################
 # Program:
 #     Assignment 11, Sorts
-#     Brother XXXXX, CS235
+#     Brother Kirby, CS235
 # Author:
-#     <your name here>
+#        Ken Smith
+#        Jessica Smith
+#        Tim O'Barr
 # Summary:
-#     <put a description here>
-# Time:
-#     <how long did it take to complete this program>?
+#     implaments a series of sorting algorithms for their use and comparison
+#  Time:
+#     Group:
+#     solo:
+#      Ken: 3 hours
+#      Jessica: 
+#      Tim: 
 ###############################################################
 
 ##############################################################
