@@ -52,9 +52,12 @@ void Heap<T>::deleteMax()
 template<class T>
 void Heap<T>::sort()
 {
+	heapify(array, num);
+
+
 	for(int i = num-1; i>=0; i--)
 	{
-		std::swap(array[0], array[num]);
+		std::swap(array[0], array[i]);
 		heapify(array, i);
 
 	}
