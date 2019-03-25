@@ -24,9 +24,9 @@ void sortQuick(T array[], int num)
 	int iUp;	
 	T pivotValue; // element to be placed
 
-	if (num < 1)
+	if (num < 1 || num == 1)
 	{
-		return;
+           return;
 	}
 	
 	iDown = iEnd = num - 1;
@@ -34,32 +34,32 @@ void sortQuick(T array[], int num)
 
 	pivotValue = array[iEnd / 2];
 
-	std::cerr << "Pivot: " << pivotValue << std::endl;
+//	std::cerr << "Pivot: " << pivotValue << std::endl;
 
-	std::cerr << "iDown: " << iDown << std::endl;
-	std::cerr << "iEnd: " << iEnd << std::endl;
-	std::cerr << "iUp: " << iUp << std::endl;
+//	std::cerr << "iDown: " << iDown << std::endl;
+//	std::cerr << "iEnd: " << iEnd << std::endl;
+//	std::cerr << "iUp: " << iUp << std::endl;
 
-	std::cerr << "Array: " << array[iUp] << std::endl;
+//	std::cerr << "Array: " << array[iUp] << std::endl;
 
 
-	while (iUp < iDown)
+	while (iUp < iDown || iUp == iDown)
 	{
 		while (iUp <= iEnd && pivotValue > array[iUp])
 		{
-			std::cerr << "While" << std::endl;
+//			std::cerr << "While" << std::endl;
 			iUp++;				
-
-			while (iDown > 0 && array[iDown] > pivotValue)			
-			{
-				iDown--;	
-			
-				if (iUp < iDown)	
-				{
-					std::swap(array[iUp++], array[iDown--]);
-				}
-			}
-		}	
+                }
+                while (iDown >= 0 && array[iDown] > pivotValue)			
+                {
+                   iDown--;	
+                }   
+                if (iUp < iDown || iUp == iDown)	
+                {
+                   std::swap(array[iUp++], array[iDown--]);
+                }
+                
+		
 	}
 
 	sortQuick(array, iUp);
