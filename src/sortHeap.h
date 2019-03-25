@@ -37,6 +37,9 @@ class Heap
    void swap(int t1, int t2);
 };
 
+/************************************
+ *takes two elements from the array and swaps their places
+ **************************************************/
 template<class T>
 void Heap<T>::swap(int t1, int t2)
 {
@@ -45,7 +48,9 @@ void Heap<T>::swap(int t1, int t2)
    array[t2] = temp;
 }
 
-
+/*************************************************************
+ * returns the value at the head of the rray
+ ************************************************************/
 template<class T>
 T Heap<T>::getMax()
 {
