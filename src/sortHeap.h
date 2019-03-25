@@ -20,33 +20,33 @@
 template <class T>
 class Heap
 {
-private:
-	T *array;
-	int num;
-public:
-	Heap(T *arrayInput, int numInput) //this is heapify
-	{
-		heapify(arrayInput, numInput);
-	}
-
-	T getMax();
-	void deleteMax();
-	void sort();
-	void heapify(T *arrayInput, int numInput);
-	void percolateDown(int index);
+  private:
+   T *array;
+   int num;
+  public:
+   Heap(T *arrayInput, int numInput) //this is heapify
+   {
+      heapify(arrayInput, numInput);
+   }
+   
+   T getMax();
+   void deleteMax();
+   void sort();
+   void heapify(T *arrayInput, int numInput);
+   void percolateDown(int index);
 };
 
 
 template<class T>
 T Heap<T>::getMax()
 {
-	return array[0];
+   return array[0];
 }
 
 template<class T>
 void Heap<T>::deleteMax()
 {
-	array[0] = NULL;
+   array[0] = NULL;
 }
 
 template<class T>
